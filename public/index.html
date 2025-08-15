@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>TheVeganPlayer</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="gameContainer">
+    <div id="overlay"></div>
+    <div id="startButton">START</div>
+    <div id="retryButton" style="display:none;">RETRY</div>
+    <div id="distanceDisplay">0 km</div>
+    <div id="missDisplay">Miss: 0</div>
+    <div id="hints">
+      <div>⚠️ HIGH VOLUME WARNING⚠️</div>
+      <div>Press [SPACE] to jump</div>
+      <div>Press [Enter] to open your mouth</div>
+    </div>
+    <img id="player" src="resources/veganteacher.jpg" />
+  </div>
+
+  <audio id="music" src="resources/ChangeTheWorld.mp3"></audio>
+  <audio id="soundNo" src="resources/veganteacherNO.mp3"></audio>
+  <audio id="soundEat" src="resources/veganteacherEAT.mp3"></audio>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: sans-serif;
+  overflow: hidden;
+  background: white;
+}
+#gameContainer {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background: white;
+}
+#startButton, #retryButton {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px 40px;
+  font-size: 24px;
+  cursor: pointer;
+  background: white;
+  border: 2px solid black;
+  border-radius: 10px;
+  z-index: 100;
+}
+#distanceDisplay {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  z-index: 5;
+}
+#missDisplay {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 20px;
+  z-index: 5;
+}
+#player {
+  position: absolute;
+  bottom: 0;
+  left: 10%;
+  width: 100px;
+  transition: bottom 0.3s;
+  z-index: 5;
+}
+.obstacle {
+  position: absolute;
+  bottom: 0;
+  font-size: 40px;
+  animation: moveLeft linear forwards;
+  z-index: 4;
+}
+@keyframes moveLeft {
+  0% { left: 100vw; }
+  100% { left: -50px; }
+}
+#overlay {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background: black;
+  z-index: 50;
+  opacity: 1;
+  transition: opacity 2s;
+}
+
+#hints {
+  position: absolute;
+  top: 12%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 60;
+  text-align: center;
+  font-size: 18px;
+  line-height: 1.4;
+  color: #222;
+  padding: 8px 12px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(2px);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  pointer-events: none;
+  user-select: none;
+}
+
+@media (min-width: 900px) {
+  #hints { font-size: 20px; padding: 10px 14px; }
+}
