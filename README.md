@@ -1,3 +1,6 @@
+# That Vegan Player
+ — *Image you are ThatVeganTeacher*
+
 # How to play?
 - Press [SPACE] to Jump
 - Press [Enter] to open your mouth
