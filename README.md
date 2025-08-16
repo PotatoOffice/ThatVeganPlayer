@@ -1,5 +1,5 @@
 # That Vegan Player
- — *Image you are ThatVeganTeacher*
+ — *Imagine being ThatVeganTeacher*
 ### 
 # How to play?
 - Press [SPACE] to Jump
