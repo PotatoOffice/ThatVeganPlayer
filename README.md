@@ -1,5 +1,6 @@
 # That Vegan Player
  — *Image you are ThatVeganTeacher*
+![gameplay](https://github.com/user-attachments/assets/61c54d65-5c4e-411d-a37b-65dc8a12124c)
 
 # How to play?
 - Press [SPACE] to Jump
