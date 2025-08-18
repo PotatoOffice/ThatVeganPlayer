@@ -2,14 +2,23 @@
 body {
   font-family: sans-serif;
   overflow: hidden;
-  background: white;
+  background: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
+
 #gameContainer {
   position: relative;
+  aspect-ratio: 20 / 9;
   width: 100vw;
-  height: 100vh;
+  height: auto;
+  max-height: 100vh;
   background: white;
+  overflow: hidden;
 }
+
 #startButton, #retryButton {
   position: absolute;
   top: 50%;
@@ -53,19 +62,18 @@ body {
   z-index: 4;
 }
 @keyframes moveLeft {
-  0% { left: 100vw; }
+  0% { left: 100%; }
   100% { left: -50px; }
 }
 #overlay {
   position: absolute;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   background: black;
   z-index: 50;
   opacity: 1;
   transition: opacity 2s;
 }
-
 #hints {
   position: absolute;
   top: 12%;
@@ -85,6 +93,83 @@ body {
   user-select: none;
 }
 
-@media (min-width: 900px) {
-  #hints { font-size: 20px; padding: 10px 14px; }
+#mobileControls {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 200;
+}
+
+#mobileControls button {
+  flex: 1;
+  margin: 0 5px;
+  padding: 45px 0;
+  font-size: 40px;
+  border-radius: 20px;
+  border: none;
+  background: rgba(60, 60, 60, 0.8);
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  touch-action: manipulation;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
+}
+
+#mobileControls button:active {
+  background: rgba(100, 100, 100, 0.9);
+}
+
+@media (max-width: 1024px) {
+  #gameContainer {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    background: linear-gradient(#87CEEB, #fff);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    overflow: hidden;
+    padding-bottom: 180px;
+  }
+
+  #player {
+    position: absolute;
+    bottom: 180px;
+    left: 50%;
+    transform: translateX(-50%);
+    max-height: 35%;
+  }
+
+  .obstacle {
+    position: absolute;
+    bottom: 180px;
+    font-size: 40px;
+    animation: moveLeft linear forwards;
+    z-index: 4;
+  }
+
+  #mobileControls {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 20px;
+    z-index: 999;
+  }
+
+@media (max-width: 1024px) {
+  #hints {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
 }

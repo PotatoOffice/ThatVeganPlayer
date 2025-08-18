@@ -14,12 +14,28 @@ const bgMusic = document.getElementById('music');
 const sfxFail = document.getElementById('soundNo');
 const sfxEat = document.getElementById('soundEat');
 
+const mobileControls = document.getElementById('mobileControls');
+const btnJump = document.getElementById('btnJump');
+const btnEat = document.getElementById('btnEat');
+
 let mouthOpen = false;
 let jumping = false;
 let dead = false;
 let distance = 0;
 let misses = 0;
 let speed = 1250; // ms per km
+
+const isMobile = /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent);
+let mobileFloor = isMobile ? window.innerHeight * 0.35 : 0;
+const desktopFloor = 0;
+
+if (isMobile) {
+  mobileControls.style.display = 'flex';
+  playerEl.style.bottom = `${mobileFloor}px`;
+  playerEl.style.left = '20%';
+  const hintsEl = document.getElementById("hints");
+  hintsEl.style.top = '200%';
+}
 
 startBtn.onclick = () => {
   startBtn.style.display = 'none';
@@ -52,6 +68,7 @@ function spawnObstacle() {
   obsEl.className = 'obstacle';
   obsEl.innerText = emoji;
   obsEl.style.left = '100vw';
+  obsEl.style.bottom = isMobile ? `${mobileFloor}px` : `${desktopFloor}px`;
   obsEl.style.animationDuration = speed + 'ms';
   gameEl.appendChild(obsEl);
 
@@ -89,7 +106,7 @@ function spawnObstacle() {
         }
       }
     }
-  }, 100);
+  }, 50);
 
   setTimeout(() => {
     obsEl.remove();
@@ -133,14 +150,7 @@ document.addEventListener('keydown', (e) => {
     mouthOpen = true;
     playerEl.src = 'resources/veganteacherOPEN.jpg';
   } else if (e.key === ' ') {
-    if (!jumping) {
-      jumping = true;
-      playerEl.style.bottom = '150px';
-      setTimeout(() => {
-        playerEl.style.bottom = '0px';
-        jumping = false;
-      }, 800);
-    }
+    jump();
   }
 });
 
@@ -150,3 +160,27 @@ document.addEventListener('keyup', (e) => {
     playerEl.src = 'resources/veganteacher.jpg';
   }
 });
+
+btnEat.addEventListener('touchstart', () => {
+  mouthOpen = true;
+  playerEl.src = 'resources/veganteacherOPEN.jpg';
+});
+btnEat.addEventListener('touchend', () => {
+  mouthOpen = false;
+  playerEl.src = 'resources/veganteacher.jpg';
+});
+
+btnJump.addEventListener('click', () => {
+  jump();
+});
+
+function jump() {
+  if (!jumping) {
+    jumping = true;
+    playerEl.style.bottom = isMobile ? `${mobileFloor + 150}px` : '150px';
+    setTimeout(() => {
+      playerEl.style.bottom = isMobile ? `${mobileFloor}px` : '0px';
+      jumping = false;
+    }, 800);
+  }
+}
