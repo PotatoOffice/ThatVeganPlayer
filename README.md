@@ -26,7 +26,7 @@ Here's why I use `258` as the port :)
 [SOURCE](https://veganuary.com/en-us/how-many-people-took-part-in-veganuary-2025-the-results-explained)
 
 ## TODO:
-- Add Mobile Support
+- ~~Add Mobile Support~~ ✅
 ###
 
 ` - Powered by Potatoes - `
